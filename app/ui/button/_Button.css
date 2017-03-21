@@ -1,0 +1,5 @@
+.button {
+  color: white;
+  composes: accentBackground from '../../styles/_palette.css';
+  composes: inputPadding inputNoBorder inputRadius from '../../styles/_utils.css';
+}

@@ -42,6 +42,6 @@ router.route("/:shortcode/stats").get((req, res) => {
 // Bind router to main proxy instance
 proxy.use('/api', router)
 
-// start the magic!
-proxy.listen(port)
-console.log(`API Proxy listening on port ${port}...`)
+// export the magic!
+
+module.exports = proxy

@@ -2,5 +2,14 @@
   "presets":[
     "es2015",
     "react"
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./app"],
+      "alias": {
+        "ui": "./app/ui",
+        "styles": "./app/styles"
+      }
+    }]
   ]
 }

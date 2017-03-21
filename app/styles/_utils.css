@@ -1,0 +1,19 @@
+.underline {
+  text-decoration: underline;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.inputPadding {
+  padding: .3em .8em;
+}
+
+.inputRadius {
+  border-radius: 3px;
+}
+
+.inputNoBorder {
+  border-width: 0;
+}

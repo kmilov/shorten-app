@@ -3,7 +3,6 @@ const path    = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ReloadPlugin      = require('reload-html-webpack-plugin')
 
-
 // Configure to auto-reload on HTML changes
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, 'app', 'index.html'),
@@ -49,6 +48,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               plugins: () => ([
+                require('postcss-import'),
                 require('autoprefixer'),
                 require('precss')
               ])

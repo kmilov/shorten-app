@@ -1,0 +1,57 @@
+@value primary: #555;
+@value acent: #eb4a42;
+@value secondary: #aaa;
+@value uninmportant: #ccc;
+@value disabled: #bfbfbf;
+@value lightGray: #eaeaea;
+@value lighterGray: #e0e0e0;
+
+.primaryColor {
+  color: primary;
+}
+
+.primaryBackground {
+  background: primary;
+}
+
+.secondaryColor {
+  color: secondary;
+}
+.secondaryBackground {
+  background: secondary;
+}
+
+.uninmportantColor {
+  color: uninmportant;
+}
+.uninmportantBackground {
+  background: uninmportant;
+}
+
+.disabledColor {
+  color: disabled;
+}
+.disabledBackground {
+  background: disabled;
+}
+
+.accentColor {
+  color: acent;
+}
+.accentBackground {
+  background: acent;
+}
+
+.lightGrayColor {
+  color: lightGray;
+}
+.lightGrayColorBackground {
+  background: lightGray;
+}
+
+.lighterGrayColor {
+  color: lighterGray;
+}
+.lighterGrayColorBackground {
+  background: lighterGray;
+}

@@ -1,0 +1,16 @@
+.shortedlink {
+  margin-top: 20px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.linkmark {
+  composes: accentColor from '../../../styles/_palette.css';
+  background: transparent;
+}
+
+.reallink {
+  display: block;
+}
