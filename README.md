@@ -10,6 +10,7 @@ $ git clone https://github.com/kmilov/shorten-app.git
 $ cd shorten-app
 $ npm install
 $ npm start
+navigate to http://localhost:8000
 ```
 
 ## TODO
