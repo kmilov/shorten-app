@@ -2,6 +2,8 @@
 A React/Redux application to shorten an URL using the API
 gymia-shorty.herokuapp.com/
 
+The app has been tested in Chrome 56+
+
 ```
 npm install
 npm start
@@ -9,7 +11,8 @@ npm start
 
 # TODO
 * Add some tests
-* Better way to handle css modules composition defined in shared fields
+* Test in  different browsers
+* Better way to handle css modules composition defined in shared files
 * Be consistent with the measurements in the PSD file
 * Handle errors in the state and UI
 * Add production mode and get rid of the logs
