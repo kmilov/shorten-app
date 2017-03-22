@@ -1,16 +1,29 @@
-.shortedlink {
-  margin-top: 20px;
+.result {
+  margin-top: 40px;
 }
 
 .link {
-  text-decoration: none;
+  composes: primaryColor from '../../../styles/_palette.css';
+  composes: robotoRegular from '../../../styles/_typography.css';
+  composes: noUnderline from '../../../styles/_utils.css';
 }
 
-.linkmark {
+.shortcode {
   composes: accentColor from '../../../styles/_palette.css';
   background: transparent;
 }
 
-.reallink {
+.target {
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 320px;
+  composes: robotoLightSmall from '../../../styles/_typography.css';
+  composes: uninmportant from '../../../styles/_typography.css';
+}
+
+.info {
+  composes: primaryColor from '../../../styles/_palette.css';
+  composes: robotoLightSmall from '../../../styles/_typography.css';
 }

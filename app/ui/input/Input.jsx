@@ -1,10 +1,18 @@
 import React, {Component, PropTypes} from 'react'
 import styles from './_Input.css'
 
-class Input extends Component {
-  render() {
-    return <input type={this.props.type} className={styles.input} value={this.props.value} />
+const Input = props => {
+  let className = styles.input
+  if(props.className) {
+    className += " "+props.className
   }
+  return <input
+    id={props.id}
+    type={props.type}
+    className={className}
+    value={props.value}
+    placeholder={props.placeholder}
+    onChange={props.onChange} />
 }
 
 Input.defaultProps = {
@@ -12,9 +20,12 @@ Input.defaultProps = {
   type: 'text'
 }
 Input.propTypes = {
+  id: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  className: PropTypes.string
 }
 
 export default Input

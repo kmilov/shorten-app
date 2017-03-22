@@ -1,0 +1,6 @@
+.action {
+  text-decoration: none;
+  cursor: pointer;
+  composes: robotoLightSmall from '../../styles/_typography.css';
+  composes: accentColor from '../../styles/_palette.css';
+}

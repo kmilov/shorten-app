@@ -1,13 +1,20 @@
 .underline {
   text-decoration: underline;
 }
+.noUnderline {
+  text-decoration: none;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
 
 .strong {
   font-weight: bold;
 }
 
 .inputPadding {
-  padding: .3em .8em;
+  padding: .7em 1.1em;
 }
 
 .inputRadius {
@@ -16,4 +23,15 @@
 
 .inputNoBorder {
   border-width: 0;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }

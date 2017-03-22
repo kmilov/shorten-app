@@ -1,0 +1,10 @@
+.title {
+  margin-top: 57px;
+}
+
+.label {
+  display: inline-block;
+  margin-right: 25px;
+  composes: robotoLightBigger from '../../../styles/_typography.css';
+  composes: primaryColor from '../../../styles/_palette.css';
+}

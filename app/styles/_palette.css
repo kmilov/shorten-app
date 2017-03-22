@@ -35,13 +35,6 @@
   background: disabled;
 }
 
-.accentColor {
-  color: acent;
-}
-.accentBackground {
-  background: acent;
-}
-
 .lightGrayColor {
   color: lightGray;
 }
@@ -54,4 +47,10 @@
 }
 .lighterGrayColorBackground {
   background: lighterGray;
+}
+.accentColor {
+  color: acent;
+}
+.accentBackground {
+  background: acent;
 }

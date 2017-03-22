@@ -8,6 +8,8 @@
       "root": ["./app"],
       "alias": {
         "ui": "./app/ui",
+        "components": "./app/src/components",
+        "actions": "./app/src/actions",
         "styles": "./app/styles"
       }
     }]

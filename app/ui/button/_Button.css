@@ -1,5 +1,16 @@
 .button {
+  cursor: pointer;
+  composes: inputPadding inputNoBorder inputRadius from '../../styles/_utils.css';
+  composes: robotoLightSmall from '../../styles/_typography.css';
+}
+
+.active {
+  composes: button;
   color: white;
   composes: accentBackground from '../../styles/_palette.css';
-  composes: inputPadding inputNoBorder inputRadius from '../../styles/_utils.css';
+}
+
+.disabled {
+  composes: button;
+  composes: lighterGrayColorBackground disabledColor from '../../styles/_palette.css';
 }

@@ -40,7 +40,7 @@ router.route("/:shortcode/stats").get((req, res) => {
 })
 
 // Bind router to main proxy instance
-proxy.use('/api', router)
+proxy.use('/', router)
 
 // export the magic!
 

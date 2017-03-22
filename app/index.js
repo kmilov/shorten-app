@@ -4,13 +4,14 @@ require('./styles/_global.css')
 import React from 'react'
 import {render} from 'react-dom'
 import {HashRouter, Route} from 'react-router-dom'
-
-import App from './src/App'
+import { Provider } from 'react-redux'
+import store from './store'
+import App from './src/containers/App'
 
 render((
-  <HashRouter>
-    <div>
+  <Provider store={store}>
+    <HashRouter>
       <Route exact pattern="/" component={App} />
-    </div>
-  </HashRouter>
+    </HashRouter>
+  </Provider>
 ), document.getElementById('root'))

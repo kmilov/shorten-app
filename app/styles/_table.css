@@ -1,0 +1,18 @@
+.table {
+  display: table;
+  width: 100%;
+}
+
+.col {
+  display: table-cell;
+  width: 20%;
+  text-align: center;
+  composes: secondaryColor from './_palette.css';
+  composes: robotoRegularSmall from './_typography.css';
+}
+
+.maincol {
+  composes: col;
+  width: 60%;
+  text-align: left;
+}

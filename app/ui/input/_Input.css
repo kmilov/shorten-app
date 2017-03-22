@@ -1,4 +1,5 @@
 .input {
+  width: 100%;
   composes: inputPadding inputNoBorder inputRadius from '../../styles/_utils.css';
   composes: lightGrayColorBackground primaryColor from '../../styles/_palette.css';
 }

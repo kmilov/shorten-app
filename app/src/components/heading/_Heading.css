@@ -1,0 +1,29 @@
+.heading {
+
+}
+.title {
+  border-bottom: 3px solid;
+  display: inline-block;
+  margin: 0;
+  composes: accentColor from '../../../styles/_palette.css';
+  composes: title from '../../../styles/_typography.css';
+}
+
+.copy {
+  composes: secondaryColor from '../../../styles/_palette.css';
+  composes: robotoLightSmall from '../../../styles/_typography.css';
+}
+
+@media (min-width: 768px) {
+  .heading {
+    display: table;
+    width: 100%;
+  }
+  .logo,
+  .copy {
+    display: table-cell;
+  }
+  .copy {
+    text-align: right;
+  }
+}

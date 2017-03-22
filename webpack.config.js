@@ -6,7 +6,7 @@ const ReloadPlugin      = require('reload-html-webpack-plugin')
 // Configure to auto-reload on HTML changes
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, 'app', 'index.html'),
-  inject: 'body',
+  inject: false,
   minify: {
     collapseWhitespace: true
   }
@@ -14,6 +14,8 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   devtool: 'eval',
+
+  
   entry:[
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8000',

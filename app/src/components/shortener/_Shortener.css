@@ -1,0 +1,25 @@
+@value disabled from '../../../styles/_palette.css';
+@value roboto from '../../../styles/_typography.css';
+
+.shortener {
+  margin-top: 55px;
+}
+
+.inputContainer {
+  width: 68%;
+  display: inline-block;
+  margin-right: 62px;
+}
+
+.input {
+  composes: primaryColor lightGrayColorBackground from '../../../styles/_palette.css';
+  composes: robotoLightSmall from '../../../styles/_typography.css';
+
+}
+
+.input::placeholder {
+  color: disabled;
+  font-family: roboto;
+  font-weight: 300;
+  font-size: 16px;
+}
