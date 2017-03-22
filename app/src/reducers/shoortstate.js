@@ -9,7 +9,7 @@ export default function(state = initialState, action) {
       return Object.assign({}, state, {shoorting: true})
     case "SHORT_FINISHED":
       return Object.assign({}, state, {shoorting: false})
-    case "SHORT_ERROR":
+    case "SHORTING_ERROR":
       return Object.assign({}, state, {error: action.payload.error})
     default:
       return state

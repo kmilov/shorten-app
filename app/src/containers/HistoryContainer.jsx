@@ -2,29 +2,39 @@
 // shoort an URL
 import React, {Component} from 'react'
 import {connect}          from 'react-redux'
+import {fetchHistory, deleteHistory}       from 'actions/history'
 import HistoryTitle       from 'components/historytitle'
 import HistoryTable       from 'components/historytable'
 import ShortedLink        from 'components/shortedlink'
 
 class HistoryContainer extends Component {
   componentWillMount() {
-    this.setState({
-    })
+    this.props.dispatch(fetchHistory())
   }
 
   handleClearHistory(event) {
-    console.log("Im on the container!")
+    this.props.dispatch(deleteHistory())
   }
+
   render() {
-    return <div>
-      <HistoryTitle
-        history={this.props.history.length > 0 ? true : false}
-        handler={this.handleClearHistory.bind(this)} />
-      <HistoryTable records={this.props.history} />
-      <ShortedLink />
-      <ShortedLink />
-      <ShortedLink />
-    </div>
+    let historyRecords = this.props.history.map((record, i) => {
+        return <ShortedLink
+          key={i}
+          shortcode={record.shortcode}
+          link={record.link}/>
+    })
+
+    let history = <noscript/>
+
+    if(historyRecords.length) {
+      history = <div>
+        <HistoryTitle handler={this.handleClearHistory.bind(this)} />
+        <HistoryTable records={this.props.history} />
+        {historyRecords}
+      </div>
+    }
+
+    return history
   }
 }
 

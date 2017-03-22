@@ -6,11 +6,11 @@ const ShortedLink = props => {
   return <div className={styles.result}>
     <div className={table.table}>
       <div className={table.maincol}>
-        <a target="_new" href={`http://${props.link}/${props.shoort}`} className={styles.link}>
+        <a target="_new" href={`http://${props.proxy}/${props.shortcode}`} className={styles.link}>
           <span>shooooort.com/</span>
-          <mark className={styles.shortcode}>{props.shoort}</mark>
+          <mark className={styles.shortcode}>{props.shortcode}</mark>
         </a>
-        <span className={styles.target}>{props.reallink}</span>
+        <span className={styles.target}>{props.link}</span>
       </div>
       <div className={table.col}>
         <span className={styles.info}>{props.visits}</span>
@@ -25,16 +25,14 @@ const ShortedLink = props => {
 ShortedLink.displayName = "ShortedLink"
 
 ShortedLink.defaultProps = {
-  link: 'gymia-shorty.herokuapp.com',
-  shoort: '97a8d7s',
-  reallink: 'http://nytimes.com/this-is-a-really-long-url-damn-so-long-and-there-is-more-long-',
+  proxy: 'gymia-shorty.herokuapp.com',
   visits: '114',
   lastVisited: '7 minutes ago'
 }
 
 ShortedLink.propTypes = {
-  link: PropTypes.string,
-  shoort: PropTypes.string,
+  link: PropTypes.string.isRequired,
+  shortcode: PropTypes.string.isRequired,
   visits: PropTypes.string,
   lastVisited: PropTypes.string
 }

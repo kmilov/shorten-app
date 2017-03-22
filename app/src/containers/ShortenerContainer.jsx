@@ -3,7 +3,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Container, Row, Column} from 'ui/layout'
-import {addShorten} from 'actions/history'
 import {shoooort} from 'actions/shoort'
 import Shortener from 'components/shortener'
 
@@ -16,7 +15,6 @@ class ShortenerContainer extends Component {
 
   handleSubmit(event) {
     this.props.dispatch(shoooort(this.state.url));
-
     this.setState({url: ''})
     event.preventDefault();
   }

@@ -2,22 +2,22 @@ import React, {Component, PropTypes} from 'react'
 import styles from './_Input.css'
 
 const Input = props => {
-  let className = styles.input
-  if(props.className) {
-    className += " "+props.className
+  let inputProps = {
+    id: props.id,
+    className: [styles.input, props.className].join(" "),
+    type: props.type,
+    value: props.value,
+    placeholder: props.placeholder,
+    autoFocus: props.autoFocus
   }
-  return <input
-    id={props.id}
-    type={props.type}
-    className={className}
-    value={props.value}
-    placeholder={props.placeholder}
-    onChange={props.onChange} />
+
+  return <input {...inputProps} onChange={props.onChange} />
 }
 
 Input.defaultProps = {
   placeholder: 'Write something',
-  type: 'text'
+  type: 'text',
+  autoFocus: false
 }
 Input.propTypes = {
   id: PropTypes.string,

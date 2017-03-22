@@ -11,7 +11,7 @@ const Shortener = props => (
   <form className={styles.shortener} onSubmit={props.handleSubmit}>
     <div className={styles.inputContainer}>
       <label htmlFor="shoorten_url" className={utilStyles.srOnly}>URL to shorten</label>
-      <Input className={styles.input} id="shoorten_url" placeholder="Paste the link you want to shorten here" value={props.url} onChange={props.handleChange}/>
+      <Input autoFocus={true} className={styles.input} id="shoorten_url" placeholder="Paste the link you want to shorten here" value={props.url} onChange={props.handleChange}/>
     </div>
     <Button valid={(props.url != '') ? true : false} type="submit">Shorten this link</Button>
   </form>

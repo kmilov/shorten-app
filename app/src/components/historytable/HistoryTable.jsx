@@ -12,15 +12,6 @@ const HistoryTable = props => {
       <div className={colClasses}>visits</div>
       <div className={colClasses}>last visited</div>
     </div>
-    <div className={styles.records}>
-      {props.records}
-    </div>
   </section>
 }
-
-
-HistoryTable.propTypes = {
-  records: PropTypes.array.isRequired
-}
-
 export default HistoryTable
