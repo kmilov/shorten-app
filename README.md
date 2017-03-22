@@ -4,12 +4,15 @@ gymia-shorty.herokuapp.com/
 
 The app has been tested in Chrome 56+
 
+## How to run
 ```
-npm install
-npm start
+$ git clone https://github.com/kmilov/shorten-app.git
+$ cd shorten-app
+$ npm install
+$ npm start
 ```
 
-# TODO
+## TODO
 * Add some tests
 * Test in  different browsers
 * Better way to handle css modules composition defined in shared files
@@ -17,3 +20,4 @@ npm start
 * Handle errors in the state and UI
 * Add production mode and get rid of the logs
 * Add the :hover action to copy URL
+* Handle fonts in webpack to get some flexibility and maybe save some loadtime 
