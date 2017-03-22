@@ -2,10 +2,10 @@
 // shoort an URL
 import React, {Component} from 'react'
 import {connect}          from 'react-redux'
-import {fetchHistory, deleteHistory}       from 'actions/history'
 import HistoryTitle       from 'components/historytitle'
 import HistoryTable       from 'components/historytable'
 import ShortedLink        from 'components/shortedlink'
+import {fetchHistory, deleteHistory, updateShortedState} from 'actions/history'
 
 class HistoryContainer extends Component {
   componentWillMount() {
@@ -17,12 +17,19 @@ class HistoryContainer extends Component {
   }
 
   render() {
-    let historyRecords = this.props.history.map((record, i) => {
-        return <ShortedLink
-          key={i}
-          shortcode={record.shortcode}
-          link={record.link}/>
-    })
+    let historyRecords = this.props.history
+        .sort(function(a,b){
+          return new Date(b.startDate) - new Date(a.startDate);
+        })
+        .map((record, i) => {
+            console.log("R => ", record.rStartDate);
+            return <ShortedLink
+              key={i}
+              shortcode={record.shortcode}
+              redirectCount={record.redirectCount}
+              startDate={record.rStartDate}
+              link={record.link}/>
+        })
 
     let history = <noscript/>
 

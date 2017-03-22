@@ -1,5 +1,6 @@
 .button {
   cursor: pointer;
+  width: 100%;
   composes: inputPadding inputNoBorder inputRadius from '../../styles/_utils.css';
   composes: robotoLightSmall from '../../styles/_typography.css';
 }
@@ -13,4 +14,11 @@
 .disabled {
   composes: button;
   composes: lighterGrayColorBackground disabledColor from '../../styles/_palette.css';
+}
+
+
+@media (min-width: 768px) {
+  .button {
+    width: auto;
+  }
 }

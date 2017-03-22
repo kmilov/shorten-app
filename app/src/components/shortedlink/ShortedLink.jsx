@@ -13,10 +13,10 @@ const ShortedLink = props => {
         <span className={styles.target}>{props.link}</span>
       </div>
       <div className={table.col}>
-        <span className={styles.info}>{props.visits}</span>
+        <span className={table.label}>Visits </span> <span className={styles.info}>{props.redirectCount}</span>
       </div>
       <div className={table.col}>
-        <span className={styles.info}>{props.lastVisited}</span>
+        <span className={table.label}>last visited </span><span className={styles.info}>{props.startDate}</span>
       </div>
     </div>
   </div>
@@ -27,13 +27,15 @@ ShortedLink.displayName = "ShortedLink"
 ShortedLink.defaultProps = {
   proxy: 'gymia-shorty.herokuapp.com',
   visits: '114',
-  lastVisited: '7 minutes ago'
+  redirectCount: 0,
+  startDate: ''
 }
 
 ShortedLink.propTypes = {
   link: PropTypes.string.isRequired,
   shortcode: PropTypes.string.isRequired,
   visits: PropTypes.string,
-  lastVisited: PropTypes.string
+  redirectCount: PropTypes.number,
+  startDate: PropTypes.string
 }
 export default ShortedLink

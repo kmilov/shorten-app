@@ -18,7 +18,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 320px;
+  width: 220px;
+  margin-bottom: 5px;
   composes: robotoLightSmall from '../../../styles/_typography.css';
   composes: uninmportant from '../../../styles/_typography.css';
 }
@@ -26,4 +27,11 @@
 .info {
   composes: primaryColor from '../../../styles/_palette.css';
   composes: robotoLightSmall from '../../../styles/_typography.css';
+}
+
+@media (min-width: 768px) {
+  .target {
+    margin-bottom: 0;
+    width: 320px;
+  }
 }

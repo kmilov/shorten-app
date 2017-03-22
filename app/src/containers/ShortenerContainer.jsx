@@ -14,8 +14,9 @@ class ShortenerContainer extends Component {
   }
 
   handleSubmit(event) {
-    this.props.dispatch(shoooort(this.state.url));
-    this.setState({url: ''})
+    this.props.dispatch(shoooort(this.state.url)).then(() => {
+      this.setState({url: ''})
+    });
     event.preventDefault();
   }
 

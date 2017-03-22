@@ -1,18 +1,38 @@
 .table {
-  display: table;
-  width: 100%;
+  display: block;
 }
 
 .col {
-  display: table-cell;
-  width: 20%;
-  text-align: center;
+  text-align: left;
   composes: secondaryColor from './_palette.css';
   composes: robotoRegularSmall from './_typography.css';
 }
 
-.maincol {
-  composes: col;
-  width: 60%;
-  text-align: left;
+.label {
+
+}
+
+@media (min-width: 768px) {
+  .table {
+    display: table;
+    width: 100%;
+  }
+  
+  .label {
+    display: none;
+  }
+
+  .col {
+    display: table-cell;
+    width: 20%;
+    text-align: center;
+    composes: secondaryColor from './_palette.css';
+    composes: robotoRegularSmall from './_typography.css';
+  }
+
+  .maincol {
+    composes: col;
+    width: 60%;
+    text-align: left;
+  }
 }

@@ -2,7 +2,8 @@ const express     = require('express')
 const bodyParser  = require('body-parser')
 const fetch       = require('node-fetch')
 const proxy       = express()
-var Datastore     = require('nedb');
+const Datastore   = require('nedb')
+const TimeAgo     = require('time-ago')()
 
 const API_URL     = "http://gymia-shorty.herokuapp.com/"
 const API_HEADERS = {"Content-Type": "application/json"}
@@ -46,7 +47,11 @@ router.route('/shorten').post((req, res) => {
       .then(data => {
         let _link = {
           link: _url,
-          shortcode: data.shortcode
+          shortcode: data.shortcode,
+          startDate: null,
+          lastSeenDate: null,
+          rStartDate: null,
+          redirectCount: 0
         }
         db.insert(_link, function (err, newDoc) {
           // return with the shortcode and the created _id
@@ -58,10 +63,35 @@ router.route('/shorten').post((req, res) => {
 
 // path to /:shorcode/stats, proxy to the gymia-shorty.herokuapp.com/:shortcode/stats
 router.route("/:shortcode/stats").get((req, res) => {
-  fetch(API_URL+`${req.params.shortcode}/stats`)
-    .then((response) => response.json())
-    .then((data) => res.json(data))
-    .catch((error) => res.json(error))
+  let _shortcode = req.params.shortcode
+  fetch(`${API_URL}${_shortcode}/stats`)
+    .then(response => response.json())
+    .then(data => {
+      let newData = Object.assign({}, data, {
+          shortcode: _shortcode,
+          rStartDate: TimeAgo.ago(new Date(data.startDate))
+        })
+
+      db.update(
+          { shortcode: _shortcode },
+          {
+              $set: {
+                startDate: newData.startDate,
+                rStartDate: newData.rStartDate,
+                lastSeenDate: newData.lastSeenDate,
+                redirectCount: newData.redirectCount
+              }
+          },
+          { multi: true },
+          function (err, numReplaced) {
+            res.json(newData)
+          }
+      )
+    })
+    .catch((error) => {
+      console.error(`Error fetching ${API_URL}${_shortcode}/stats`, error)
+      res.json(error)
+    })
 })
 
 // Bind router to main proxy instance
