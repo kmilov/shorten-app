@@ -1,13 +1,13 @@
 {
-  "name": "Shorten app",
+  "name": "shorten-url-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple React/Redux to shorten a long URL",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "",
+  "author": "kmil0cv@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.24.0",
