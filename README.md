@@ -20,3 +20,4 @@ $ npm start
 * Handle errors in the state and UI
 * Add production mode and get rid of the logs
 * Add the :hover action to copy URL
+* Handle fonts in webpack to get some flexibility and maybe save some loadtime 
