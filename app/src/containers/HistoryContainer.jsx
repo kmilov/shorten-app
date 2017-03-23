@@ -20,9 +20,9 @@ class HistoryContainer extends Component {
 
   render() {
     let historyRecords = this.props.history
-        // .sort(function(a,b){
-        //   return new Date(b.startDate) - new Date(a.startDate);
-        // })
+        .sort(function(a,b){
+          return new Date(b.startDate) - new Date(a.startDate);
+        })
         .map((record, i) => {
             return <ShortedLink
               key={i}
