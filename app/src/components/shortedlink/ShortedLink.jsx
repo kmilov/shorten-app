@@ -64,8 +64,7 @@ ShortedLink.defaultProps = {
   proxy: 'gymia-shorty.herokuapp.com',
   visits: '114',
   redirectCount: 0,
-  startDate: '',
-  showAction: false
+  startDate: ''
 }
 
 ShortedLink.propTypes = {
@@ -73,10 +72,6 @@ ShortedLink.propTypes = {
   shortcode: PropTypes.string.isRequired,
   visits: PropTypes.string,
   redirectCount: PropTypes.number,
-  startDate: PropTypes.string,
-  showAction: PropTypes.bool,
-  mouseEnter: PropTypes.func,
-  mouseLeave: PropTypes.func,
-  actionHandler: PropTypes.func,
+  startDate: PropTypes.string
 }
 export default ShortedLink

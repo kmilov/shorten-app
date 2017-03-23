@@ -69,7 +69,7 @@ router.route("/:shortcode/stats").get((req, res) => {
     .then(data => {
       let newData = Object.assign({}, data, {
           shortcode: _shortcode,
-          rStartDate: TimeAgo.ago(new Date(data.startDate))
+          rStartDate: TimeAgo.ago(new Date(data.lastSeenDate))
         })
 
       db.update(
