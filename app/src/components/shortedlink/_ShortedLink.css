@@ -3,6 +3,7 @@
 }
 
 .link {
+  margin-right: 50px;
   composes: primaryColor from '../../../styles/_palette.css';
   composes: robotoRegular from '../../../styles/_typography.css';
   composes: noUnderline from '../../../styles/_utils.css';

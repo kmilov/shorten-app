@@ -11,6 +11,9 @@ import {fetchHistory, deleteHistory, updateShortedState} from 'actions/history'
 
 class HistoryContainer extends Component {
   componentWillMount() {
+    this.setState({
+      showCopyAction: false
+    })
     this.props.dispatch(fetchHistory())
   }
 

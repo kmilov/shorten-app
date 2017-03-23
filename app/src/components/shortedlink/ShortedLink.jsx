@@ -1,34 +1,71 @@
-import React, {PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react'
+import Action from 'ui/action'
 import styles from './_ShortedLink.css'
 import table from 'styles/_table.css'
 
-const ShortedLink = props => {
-  return <div className={styles.result}>
-    <div className={table.table}>
-      <div className={table.maincol}>
-        <a target="_new" href={`http://${props.proxy}/${props.shortcode}`} className={styles.link}>
-          <span>shooooort.com/</span>
-          <mark className={styles.shortcode}>{props.shortcode}</mark>
-        </a>
-        <span className={styles.target}>{props.link}</span>
-      </div>
-      <div className={table.col}>
-        <span className={table.label}>Visits </span> <span className={styles.info}>{props.redirectCount}</span>
-      </div>
-      <div className={table.col}>
-        <span className={table.label}>last visited </span><span className={styles.info}>{props.startDate}</span>
-      </div>
-    </div>
-  </div>
-}
+class ShortedLink extends Component {
+  componentWillMount() {
+    this.setState({showCopyAction: false})
+  }
 
-ShortedLink.displayName = "ShortedLink"
+  handleActionMouseEnter(e) {
+    this.setState({showCopyAction: true})
+  }
+
+  handleActionMouseLeave(e) {
+    this.setState({showCopyAction: false})
+  }
+
+  handleCopyAction(e){
+    // TODO Implement copy
+    console.warn("TODO: no copy yet")
+  }
+
+  render() {
+    return (
+      <div className={styles.result}>
+        <div className={table.table}>
+          <div
+            className={table.maincol}
+            onMouseEnter={this.handleActionMouseEnter.bind(this)}
+            onMouseLeave={this.handleActionMouseLeave.bind(this)}>
+            <a
+              target="_new"
+              href={`http://${this.props.proxy}/${this.props.shortcode}`}
+              className={styles.link}>
+              <span>shooooort.com/</span>
+              <mark className={styles.shortcode}>{this.props.shortcode}</mark>
+            </a>
+            {/*Show copy action on hover*/}
+            {this.state.showCopyAction &&
+                <Action handler={this.handleCopyAction.bind(this)}>Click to copy</Action>
+            }
+            <span className={styles.target}>{this.props.link}</span>
+          </div>
+
+          {/*Visits column*/}
+          <div className={table.col}>
+            <span className={table.label}>Visits </span>
+            <span className={styles.info}>{this.props.redirectCount}</span>
+          </div>
+
+          {/*Last Visited column*/}
+          <div className={table.col}>
+            <span className={table.label}>last visited </span>
+            <span className={styles.info}>{this.props.startDate}</span>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
 
 ShortedLink.defaultProps = {
   proxy: 'gymia-shorty.herokuapp.com',
   visits: '114',
   redirectCount: 0,
-  startDate: ''
+  startDate: '',
+  showAction: false
 }
 
 ShortedLink.propTypes = {
@@ -36,6 +73,10 @@ ShortedLink.propTypes = {
   shortcode: PropTypes.string.isRequired,
   visits: PropTypes.string,
   redirectCount: PropTypes.number,
-  startDate: PropTypes.string
+  startDate: PropTypes.string,
+  showAction: PropTypes.bool,
+  mouseEnter: PropTypes.func,
+  mouseLeave: PropTypes.func,
+  actionHandler: PropTypes.func,
 }
 export default ShortedLink
