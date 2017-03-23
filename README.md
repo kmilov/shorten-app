@@ -14,7 +14,8 @@ navigate to http://localhost:8000
 ```
 
 ## TODO
-* Add some tests
+
+* Increase test coverage
 * Test in  different browsers
 * Better way to handle css modules composition defined in shared files
 * Find a way to friendly handle breakpoints on CSS Modules
