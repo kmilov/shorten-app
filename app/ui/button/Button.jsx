@@ -11,11 +11,12 @@ const Button = props => {
     className: (props.valid) ? styles.active : styles.disabled,
     type: props.type,
     value: props.children,
+    disabled: !props.valid
   }
 
-  if(!props.valid) {
-    btnProps = Object.assign({}, btnProps, {disabled: true})
-  }
+  // if(!props.valid) {
+  //   btnProps = Object.assign({}, btnProps, {disabled: true})
+  // }
 
   return <input
     {...btnProps}
@@ -30,7 +31,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-  handleClick: PropTypes.func,
+  handleClick: PropTypes.func.isRequired,
   type: PropTypes.string,
   valid: PropTypes.bool,
   children: PropTypes.string
