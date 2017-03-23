@@ -10,8 +10,9 @@ export function addFetchError(error){
 }
 
 
-// Short an URL through the proxy
-// then populate the history STATE through addShortenToHistory
+// Short an URL through the internal proxy
+// Call the stats for the new url
+// Populate the history STATE through addShortenToHistory
 export function shoooort(url) {
   return function(dispath) {
     return fetch("/api/shorten", {
@@ -23,7 +24,6 @@ export function shoooort(url) {
     .then(data => {
       fetchLinkStats(data)
         .then(result => {
-          console.log("READY TO DISPATCH 2: ")
           let _url = Object.assign({}, data, result)
           return dispath(addLinkToHistory(_url))
         })

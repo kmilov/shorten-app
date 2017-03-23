@@ -8,16 +8,14 @@
   composes: robotoRegularSmall from './_typography.css';
 }
 
-.label {
-
-}
-
+.label {}
+  
 @media (min-width: 768px) {
   .table {
     display: table;
     width: 100%;
   }
-  
+
   .label {
     display: none;
   }

@@ -1,6 +1,6 @@
 // Accept modules for DEV Env
 module.hot.accept()
-require('./styles/_global.css')
+
 import React from 'react'
 import {render} from 'react-dom'
 import {HashRouter, Route} from 'react-router-dom'

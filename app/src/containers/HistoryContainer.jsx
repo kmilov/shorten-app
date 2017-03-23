@@ -1,7 +1,9 @@
 // Implement the Form and the actions needed to
 // shoort an URL
+require('styles/_animations.css');
 import React, {Component} from 'react'
 import {connect}          from 'react-redux'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import HistoryTitle       from 'components/historytitle'
 import HistoryTable       from 'components/historytable'
 import ShortedLink        from 'components/shortedlink'
@@ -18,11 +20,10 @@ class HistoryContainer extends Component {
 
   render() {
     let historyRecords = this.props.history
-        .sort(function(a,b){
-          return new Date(b.startDate) - new Date(a.startDate);
-        })
+        // .sort(function(a,b){
+        //   return new Date(b.startDate) - new Date(a.startDate);
+        // })
         .map((record, i) => {
-            console.log("R => ", record.rStartDate);
             return <ShortedLink
               key={i}
               shortcode={record.shortcode}
@@ -35,10 +36,15 @@ class HistoryContainer extends Component {
 
     if(historyRecords.length) {
       history = <div>
-        <HistoryTitle handler={this.handleClearHistory.bind(this)} />
-        <HistoryTable records={this.props.history} />
-        {historyRecords}
-      </div>
+            <HistoryTitle handler={this.handleClearHistory.bind(this)} />
+            <HistoryTable records={this.props.history} />
+            <ReactCSSTransitionGroup
+                transitionName="item"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}>
+            {historyRecords}
+            </ReactCSSTransitionGroup>
+          </div>
     }
 
     return history
