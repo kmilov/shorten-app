@@ -3,8 +3,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Container, Row, Column} from 'ui/layout'
-import {shoooort} from 'actions/shoort'
+import {shoooort, setInProgress, setFinished} from 'actions/shoort'
 import Shortener from 'components/shortener'
+import Spinner from 'components/spinner'
+
 
 class ShortenerContainer extends Component {
   componentWillMount() {
@@ -17,6 +19,7 @@ class ShortenerContainer extends Component {
     this.props.dispatch(shoooort(this.state.url)).then(() => {
       this.setState({url: ''})
     });
+
     event.preventDefault();
   }
 
@@ -25,10 +28,15 @@ class ShortenerContainer extends Component {
   }
 
   render() {
-    return <Shortener
-      url={this.state.url}
-      handleSubmit={this.handleSubmit.bind(this)}
-      handleChange={this.handleChange.bind(this)} />
+    let shortener = <Spinner />
+    if (!this.props.shoortstate.shoorting){
+      shortener = <Shortener
+        url={this.state.url}
+        handleSubmit={this.handleSubmit.bind(this)}
+        handleChange={this.handleChange.bind(this)}/>
+    }
+
+    return shortener
   }
 }
 

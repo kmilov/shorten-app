@@ -1,5 +1,16 @@
 import {fetchLinkStats, addLinkToHistory} from './history'
 
+export function setInProgress(action){
+  return {
+    type: "SHORT_IN_PROGRESS"
+  }
+}
+
+export function setFinished(action){
+  return {
+    type: "SHORT_FINISHED"
+  }
+}
 
 // Set an error in the shoort state
 export function addFetchError(error){
@@ -9,12 +20,12 @@ export function addFetchError(error){
   }
 }
 
-
 // Short an URL through the internal proxy
 // Call the stats for the new url
 // Populate the history STATE through addShortenToHistory
 export function shoooort(url) {
-  return function(dispath) {
+  return dispath => {
+    dispath(setInProgress())
     return fetch("/api/shorten", {
       method: 'POST',
       headers: {'Content-type': 'application/json'},
@@ -25,7 +36,9 @@ export function shoooort(url) {
       fetchLinkStats(data)
         .then(result => {
           let _url = Object.assign({}, data, result)
-          return dispath(addLinkToHistory(_url))
+
+          dispath(addLinkToHistory(_url))
+          dispath(setFinished())
         })
         .catch(error => {
           return dispath(addFetchError(error))

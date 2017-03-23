@@ -1,8 +1,10 @@
 // Add a link to the Redux state
 export function addLinkToHistory(url) {
-  return {
-    type: 'ADD_SHORTED',
-    payload: url
+  return dispatch => {
+    return dispatch({
+      type: 'ADD_SHORTED',
+      payload: url
+    })
   }
 }
 // Query the api/stat to get the details for a shortened link
