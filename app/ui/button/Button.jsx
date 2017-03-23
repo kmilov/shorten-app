@@ -14,10 +14,6 @@ const Button = props => {
     disabled: !props.valid
   }
 
-  // if(!props.valid) {
-  //   btnProps = Object.assign({}, btnProps, {disabled: true})
-  // }
-
   return <input
     {...btnProps}
     onClick={props.handleClick} />
